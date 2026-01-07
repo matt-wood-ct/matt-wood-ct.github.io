@@ -9,9 +9,11 @@
             font-family: sans-serif;
             margin: 2rem;
             line-height: 1.6;
+            background-color: #ffffff;
+            color: #333;
         }
         h1 {
-            color: #333;
+            color: inherit;
         }
         ul {
             list-style-type: none;
@@ -26,6 +28,15 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+            a {
+                color: #3399ff;
+            }
         }
     </style>
 </head>
