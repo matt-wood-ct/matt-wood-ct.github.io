@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+        }
+        #display {
+            font-size: 10rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="display">0</div>
+
+    <script>
+        function getCount() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const countParam = urlParams.get('count');
+            
+            if (countParam === null) {
+                return 0;
+            }
+
+            // Sanitization: Parse as integer and check if it's a number
+            const parsedCount = parseInt(countParam, 10);
+            
+            if (isNaN(parsedCount)) {
+                return "Invalid Count";
+            }
+            
+            return parsedCount;
+        }
+
+        document.getElementById('display').textContent = getCount();
+    </script>
+</body>
+</html>
